@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="keywords" content=""/>
+  <meta name="description" content=""/>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="styles/css/base.css">
+  <link rel="stylesheet" href="styles/css/animate.min.css">
+  <link rel="stylesheet" href="styles/css/common.css"/>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript">
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if (clientWidth >= 2448) {
+            docEl.style.fontSize = '100px';
+          } else {
+            docEl.style.fontSize = 100 * (clientWidth / 2448) + 'px';
+          }
+        };
+
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+      /*DOMContentLoaded文档加载完成不包含图片资源 onload包含图片资源*/
+    })(document, window);
+  </script>
+  <!--[if lte IE 9]>
+  <script type="text/javascript" src="js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="js/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    #canvas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #root {
+      width:100%;
+      height:100%;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+<div id="root">
+<section class="en">
+  <div class="page1 ">
+    <!--<video  width="100%" height="100%"  style="object-fit:cover" autoplay loop preload="auto" class="slider-video" >-->
+      <!--<source src="sw.mp4" type="video/mp4">-->
+      <!--</source>-->
+    <!--</video>-->
+    <diV class="head">
+      <div class="title title1" style="display:none">
+        <span>Featured Projects<strong>44 Projects</strong></span>
+        <small>I am viewing <em> all types of themes</em> in <em>all industries</em> from <em>all lines of service</em></small>
+      </div>
+      <div class="title title1" style="display:none">
+        <span>Featured Projects<strong>13 Projects</strong></span>
+        <small>I am viewing <em> all types of themes</em> in <em>retail & consumers, insurance, TMT, healthcare industry</em> from <em>advisory</em></small>
+      </div>
+      <div class="title title1 title2" >
+        <span>Featured Projects<strong>13 Projects</strong></span>
+        <small>I am viewing <em> innovation, creative, market entry strategy, bra</em> projects in <em>retail & consumers,insurance, TMT, real estate, healt</em> from <em>advisory-ccnsulting, tax, risk assurance,advisor</em></small>
+      </div>
+    </diV>
+    <div class="main">
+      <ul>
+        <li class="item-content">
+          <a class="active">
+            <div class="one">
+              <img src="./images/pro1.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Reimaging the digital theme park
+              experience in China</p>
+            <small>Little Socium</small>
+          </div>
+        </li>
+        <li class="item-content">
+          <a>
+            <div class="one">
+              <img src="./images/pro2.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Offering online-only China market-entry
+              strategy & execution</p>
+            <small>Leading European Supermarket</small>
+          </div>
+        </li>
+        <li class="item-content">
+          <a>
+            <div class="one">
+              <img src="./images/pro3.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Designing excitement for Hong Kong’s
+              biggest games</p>
+            <small>HKRU (7s)</small>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li class="item-content">
+          <a>
+            <div class="one">
+              <img src="./images/pro4.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Reimaging the digital theme park
+              experience in China</p>
+            <small>Little Socium</small>
+          </div>
+        </li>
+        <li class="item-content">
+          <a>
+            <div class="one">
+              <img src="./images/pro2.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Offering online-only China market-entry
+              strategy & execution</p>
+            <small>Leading European Supermarket</small>
+          </div>
+        </li>
+        <li class="item-content">
+          <a>
+            <div class="one">
+              <img src="./images/pro3.jpg" alt="">
+            </div>
+          </a>
+          <div class="caption">
+            <p>Designing excitement for Hong Kong’s
+              biggest games</p>
+            <small>HKRU (7s)</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="keypad">
+      <div class="key">
+        <a class="key-en">ENTER</a>
+        <!--左右键-->
+        <a class="key1"><img src="./images/left.png" width="100%"></a>
+        <a class="key1 key-fr"><img src="./images/right.png" width="100%"></a>
+        <!--上下键-->
+        <a class="key2"><img src="./images/top.png" width="100%"></a>
+        <a class="key2 key-tb"><img src="./images/bottom.png" width="100%"></a>
+        <audio id="adu">
+          <source src="8927.mp3" type="audio/mp3">
+          <source src="8927.ogg" type="audio/ogg">
+        </audio>
+
+      </div>
+      <div class="pic">
+        <span class="icon icon-exit "></span>
+        <span >EXIT</span>
+      </div>
+    </div>
+    <div class="map"></div>
+  </div>
+</section>
+</div>
+<canvas id="canvas" width="100%" height="100%"></canvas>
+<script src="js/canvas.js"></script>
+<script>
+  var can = document.getElementById("canvas");
+  can.width = window.innerWidth;
+  can.height = window.innerHeight;
+  var a = new CanvasAnimate(can, {length:100,clicked:true,moveon:true});
+  a.Run();
+</script>
+<script>
+  function play1(){
+    var adu=$('#adu')[0];
+    adu.play();
+  }
+  $('.key a').click(function(){
+    $(this).addClass('animated bounceIn').siblings('a').removeClass('animated bounceIn');
+    play1();
+  })
+
+</script>
+</body>
+</html>

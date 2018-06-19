@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="styles/css/base.css">
+    <link rel="stylesheet" href="styles/css/animate.min.css">
+    <link rel="stylesheet" href="styles/css/wx.css"/>
+    <link rel="stylesheet" href="styles/skin/layer.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
+    <script type="text/javascript">
+      (function (doc, win) {
+        var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+              docEl.style.fontSize = '100px';
+            } else {
+              docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+          };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        /*DOMContentLoaded文档加载完成不包含图片资源 onload包含图片资源*/
+      })(document, window);
+    </script>
+    <script>
+      window.location.href="http://www.pwccn.com/global/forms/contactUsNew.html?parentPagePath=/content/pwc/cn/en&style=red";
+    </script>
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body >
+    <section class="en">
+        <div class="container01">
+          <h3>Contact us</h3>
+          <small>Please leave your contact information</small>
+          <div class="form">
+            <div class="input1" style="margin-top: .5rem;">
+              <input type="text" placeholder="" id="name"  required="required">
+              <label class="form-label">Your Name</label>
+            </div>
+            <div class="input1">
+              <input type="text" placeholder=""  id="email" required="required">
+              <label class="form-label">Email</label>
+            </div>
+            <div class="input1">
+              <input type="text" placeholder="" id="mobile">
+              <label class="form-label">Mobile</label>
+            </div>
+            <div class="input1">
+              <input type="text" placeholder="" id="message">
+              <label class="form-label">Your message</label>
+            </div>
+            <div class="input1">
+              <button class="submit">Send message</button>
+            </div>
+          </div>
+        </div>
+      <div class="modal">
+        <p>success!</p>
+        <button ><span>ok</span></button>
+      </div>
+    </section>
+    <script>
+
+      //账号验证
+      function checkname() {
+        $('#name').next().text('');
+        var reg = /^[A-Za-z]\w+$/; //正则表达式 必须以字母开头的账号
+        if ($("#name").val().search(reg) == -1) {
+//      $("#error").html("用户名以字母开头");
+          layer.msg('The user name begins with a letter');
+          return false;
+        }
+        return true;
+
+
+      }
+
+      //邮箱验证
+      function checkemail() {
+        $('#email').next().text('');
+        var reg = /^\w+@\w+(\.\w+){1,2}$/;
+        if ($("#email").val().search(reg) == -1) {
+//      $('#error1').html("邮箱格式不正确");
+          layer.msg('Incorrect email format');
+          return false;
+        }
+        return true;
+      }
+      //手机验证
+      function checkmobile() {
+        $('#mobile').next().text('');
+        var reg = /^(13|15|17|18)\d{9}$/;
+        if ($("#mobile").val().search(reg) == -1) {
+//      $('#error2').html("手机格式填写错误");
+          layer.msg('Error in the form of mobile phone');
+          return false;
+        }
+        return true;
+      }
+
+      $('#name').blur(checkname);
+      $('#email').blur(checkemail);
+      $('#mobile').blur(checkmobile);
+      $('#message').blur(function(){
+        $('#message').next().text('');
+      })
+
+      $('.submit').click(function(){
+        var name=$('#name').val();
+        var mobile = $("#mobile").val();
+        var email = $("#email").val();
+        var message=$("#message").val();
+        console.log(name);
+        if(name == "" || mobile == "" || message =="" || email ==""){
+          layer.msg("Please fill in the complete information");
+          return false;
+        }
+        if(!(checkname() && checkemail() && checkmobile())){
+          layer.msg("Please verify the completion before submission");
+          return false;
+        }
+        $.ajax({
+          url:'http://showcasebackend.loncus.com/emailsubmit',
+          //url: './data.json',
+          type: 'post',
+          dataType: 'json',
+          data: {name:name,mobile:mobile,email:email,message:message},
+          timeout: 5000,
+          success:function(data){
+            console.log(data);
+            $('.submit').attr("disabled","disabled");
+            $('.modal').show();
+            $('button').click(function(){
+              window.location.reload();
+            })
+
+          },
+          error: function () {
+            layer.msg('submit error');
+          }
+
+        })
+
+      })
+    </script>
+</body>
+</html>

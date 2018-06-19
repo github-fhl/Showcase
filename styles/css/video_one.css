@@ -1,0 +1,32 @@
+.title {
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  left: 15%; }
+  .title i {
+    font-size: 40px;
+    display: block; }
+    .title i:before {
+      content: '12 Videos';
+      position: absolute;
+      top: 0;
+      font-size: 18px;
+      right: -30px;
+      color: #919191; }
+    .title i:after {
+      content: '';
+      width: 84%;
+      height: 1px;
+      position: absolute;
+      top: 55px;
+      left: 0px;
+      background: #fff; }
+  .title small {
+    margin-top: 25px;
+    display: block;
+    color: #919191; }
+    .title small em {
+      color: #fff;
+      font-style: italic; }
+
+/*# sourceMappingURL=video_one.css.map */

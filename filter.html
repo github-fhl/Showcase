@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="styles/css/base.css">
+    <link rel="stylesheet" href="styles/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/css/swiper.min.css">
+    <link rel="stylesheet" href="styles/css/animate.min.css">
+    <link rel="stylesheet" href="styles/css/common.css"/>
+    <link rel="stylesheet" href="styles/css/iconfont.css"/>
+    <link rel="stylesheet" href="styles/css/demo.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function (doc, win) {
+        var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 2448) {
+              docEl.style.fontSize = '100px';
+            } else {
+              docEl.style.fontSize = 100 * (clientWidth / 2448) + 'px';
+            }
+          };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        /*DOMContentLoaded文档加载完成不包含图片资源 onload包含图片资源*/
+      })(document, window);
+    </script>
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css">
+    #canvas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #root {
+      width:100%;
+      height:100%;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body >
+<div id="root">
+    <section class="en">
+        <div class="page1">
+            <!--<video  width="100%" height="100%"   autoplay loop preload="auto" class="slider-video" >-->
+                <!--<source src="sw.mp4" type="video/mp4">-->
+                <!--</source>-->
+            <!--</video>-->
+            <div class="filter">
+              <div class="filter-head">
+                <label class=" btn-checkbox title-overflow active " title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="1">all featured videos <span>(20)</span>
+                </label>
+                <label class=" btn-checkbox title-overflow active" title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="2">corporate Introduction <span>(4)</span>
+                </label>
+                <label class=" btn-checkbox title-overflow " title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="3">line of Service Introduction <span>(5)</span>
+                </label>
+                <label class=" btn-checkbox title-overflow " title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="4">industry mega trend <span>(3)</span>
+                </label>
+                <label class=" btn-checkbox title-overflow " title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="5">leadership speech <span>(5)</span>
+                </label>
+                <label class=" btn-checkbox title-overflow " title="" data-original-title="123">
+                  <input type="checkbox" name="typeCodes" value="6">events <span>(3)</span>
+                </label>
+              </div>
+              <div class="filter-foot btn">
+                  <a href="#" class="white_btn ">Confirm</a>
+                  <a href="#" class="white_btn ">Cancel</a>
+              </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+<canvas id="canvas" width="100%" height="100%"></canvas>
+<script src="js/canvas.js"></script>
+<script>
+  var can = document.getElementById("canvas");
+  can.width = window.innerWidth;
+  can.height = window.innerHeight;
+  var a = new CanvasAnimate(can, {length:100,clicked:true,moveon:true});
+  a.Run();
+</script>
+<script>
+  $('.btn-checkbox ').click(function(){
+    $(this).addClass('active').siblings().removeClass('active');
+  })
+</script>
+</body>
+</html>
